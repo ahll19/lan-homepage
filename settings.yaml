@@ -1,7 +1,32 @@
 ---
-# For configuration options and examples, please see:
-# https://gethomepage.dev/configs/settings/
+# Global look & feel + page layout.
+# Docs: https://gethomepage.dev/configs/settings/
 
-providers:
-  openweathermap: openweathermapapikey
-  weatherapi: weatherapiapikey
+title: Homelab
+theme: dark # dark | light
+color: slate # slate, gray, zinc, neutral, stone, red, orange, amber, ... (Tailwind palette)
+target: _blank # open service links in a new tab
+headerStyle: clean # clean | boxed | underlined
+
+background:
+  # optional: point this at an image on your setup, or delete the whole block
+  blur: sm
+  saturate: 50
+  brightness: 60
+
+# Groups here MUST match the group names used in services.yaml exactly (case-sensitive).
+# style: row -> cards flow left-to-right, wrapping at `columns`
+# style: column -> group behaves as its own vertical column (max 4 columns side by side by default)
+layout:
+  Media:
+    style: row
+    columns: 3
+  Home:
+    style: row
+    columns: 3
+  Infrastructure:
+    style: row
+    columns: 3
+  Apps:
+    style: row
+    columns: 4

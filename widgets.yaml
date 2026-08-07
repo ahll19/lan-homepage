@@ -1,12 +1,33 @@
 ---
-# For configuration options and examples, please see:
-# https://gethomepage.dev/configs/info-widgets/
+# "Info widgets" — these sit in the header bar, NOT attached to any service.
+# Order in this file = left-to-right order on the page (weather/search/datetime
+# are pinned to the right automatically).
+# Docs: https://gethomepage.dev/configs/info-widgets/
 
-- resources:
-    cpu: true
-    memory: true
-    disk: /
+- datetime:
+      text_size: xl
+      locale: da
+      format:
+          dateStyle: long
+          timeStyle: short
+          hourCycle: h23
 
 - search:
-    provider: duckduckgo
-    target: _blank
+      provider: duckduckgo # google | duckduckgo | bing | brave | ... or "custom"
+      target: _blank
+
+# Open-Meteo needs no API key, so it's the easiest weather option to start with.
+# Swap to `weatherapi:` or `openweathermap:` later if you want an API key's extra data.
+- openmeteo:
+      label: Aalborg
+      latitude: 57.0488
+      longitude: 9.9217
+      timezone: Europe/Copenhagen
+      units: metric
+      cache: 15
+      format:
+          maximumFractionDigits: 1
+# NOTE: a `resources:` widget here would show stats for the machine Homepage
+# itself is running on (needs docker socket or Glances) — NOT your TrueNAS box.
+# For TrueNAS system stats, that widget lives on the TrueNAS *service card* in
+# services.yaml instead (see the Infrastructure group there).
