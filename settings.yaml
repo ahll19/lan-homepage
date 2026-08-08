@@ -3,6 +3,7 @@
 # Docs: https://gethomepage.dev/configs/settings/
 
 title: Homelab
+description: LAN only dashboard - services og overblik
 theme: dark # dark | light
 color: slate # slate, gray, zinc, neutral, stone, red, orange, amber, ... (Tailwind palette)
 target: _blank # open service links in a new tab
