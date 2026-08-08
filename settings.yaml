@@ -10,10 +10,11 @@ target: _blank # open service links in a new tab
 headerStyle: clean # clean | boxed | underlined
 
 background:
-  # optional: point this at an image on your setup, or delete the whole block
+  image: '/images/fingers_of_creation.png'
   blur: sm
   saturate: 50
   brightness: 60
+  opacity: 50
 
 # Groups here MUST match the group names used in services.yaml exactly (case-sensitive).
 # style: row -> cards flow left-to-right, wrapping at `columns`

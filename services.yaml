@@ -60,7 +60,7 @@
         href: https://npm.example.dk
         description: Reverse proxy / SSL
 
-- Apps:
+# - Apps:
     # Start everything else here as a plain link (no widget block needed),
     # then upgrade individual ones to widgets once you confirm they're supported:
     # https://gethomepage.dev/widgets/services/

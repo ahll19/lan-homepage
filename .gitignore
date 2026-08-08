@@ -2,3 +2,4 @@
 .DS_Store
 logs/homepage.log
 .env
+*.png
