@@ -9,12 +9,13 @@ color: slate # slate, gray, zinc, neutral, stone, red, orange, amber, ... (Tailw
 target: _blank # open service links in a new tab
 headerStyle: clean # clean | boxed | underlined
 
-background:
-  image: '/images/fingers_of_creation.png'
-  blur: sm
-  saturate: 50
-  brightness: 60
-  opacity: 50
+cardBlur: sm
+# background:
+#   image: '/images/fingers_of_creation.png'
+#   blur: none
+#   saturate: 50
+#   brightness: 90
+#   opacity: 25
 
 # Groups here MUST match the group names used in services.yaml exactly (case-sensitive).
 # style: row -> cards flow left-to-right, wrapping at `columns`

@@ -1,40 +1,49 @@
 ---
-# Main dashboard body. Structure is:
-#
-# - GroupName:
-#     - Service Display Name:
-#         icon: <icon>
-#         href: <link the card opens when clicked>
-#         description: <small grey subtext>
-#         widget:            # optional — live stats pulled from the service's API
-#           type: <integration type>
-#           url: <internal URL/port the widget calls, can differ from href>
-#           key: <api key/token, if required>
-#
-# Group names below MUST match the layout: keys in settings.yaml.
-# Docs: https://gethomepage.dev/configs/services/
-# Full widget integration list + required fields per service:
-#   https://gethomepage.dev/widgets/services/
-
 - Media:
-    - Plex: # rename to "Jellyfin" and swap widget type if that's what you run
-        icon: plex.png
-        href: https://plex.example.dk        # your NPM hostname
+    - Jellyfin:
+        icon: jellyfin.png
+        href: https://jellyfin.lauridsen.it
         description: Movies & TV
         widget:
-          type: plex
-          url: http://192.168.1.X:32400      # internal IP:port, bypasses NPM
-          key: "{{HOMEPAGE_VAR_PLEX_KEY}}"
+          type: jellyfin
+          url: https://jellyfin.lauridsen.it
+          key: "{{HOMEPAGE_VAR_JELLYFIN_KEY}}"
+          enableBlocks: true
+          enableNowPlaying: true
+          enableMediaControl: true
 
 - Home:
     - Home Assistant:
         icon: home-assistant.png
-        href: https://ha.example.dk
-        description: Smart home
+        href: https://hjem.lauridsen.it
+        description: Home Assistant
         widget:
           type: homeassistant
-          url: http://192.168.1.X:8123
+          url: https://hjem.lauridsen.it
           key: "{{HOMEPAGE_VAR_HA_TOKEN}}"
+          custom:
+            - template: "{{ states.person|selectattr('state','equalto','home')|list|length }}"
+              label: "People Home"
+            - template: |
+                {% set light_ids = ['light.bornevaerelse', 'light.gang', 'light.sovevaerelse', 'light.stue'] %}
+                {{ light_ids | select('is_state', 'on') | list | length }}
+              label: "Rooms with lights On"
+            - template: |
+                {% set sensor_ids = ['binary_sensor.dorsensor_gang_fordor_contact', 'binary_sensor.dorsensor_kokken_bagdor_contact'] %}
+                {% set ns = namespace(latest=none, entity=none) %}
+                {% for sensor in sensor_ids %}
+                {% set changed = states[sensor].last_changed %}
+                {% if ns.latest is none or changed > ns.latest %}
+                    {% set ns.latest = changed %}
+                    {% set ns.entity = sensor %}
+                {% endif %}
+                {% endfor %}
+                {% if ns.entity %}
+                {{ 'Opened' if is_state(ns.entity, 'on') else 'Closed' }} {{ relative_time(ns.latest) }} ago
+                {% else %}
+                Unknown
+                {% endif %}
+              label: "Last Door Open"
 
     - Mealie:
         icon: mealie.png
@@ -52,8 +61,8 @@
         description: NAS / storage
         widget:
           type: truenas
-          url: https://192.168.1.X             # TrueNAS SCALE web UI address
-          key: "{{HOMEPAGE_VAR_TRUENAS_KEY}}"   # API key from TrueNAS UI > API Keys
+          url: https://192.168.1.X # TrueNAS SCALE web UI address
+          key: "{{HOMEPAGE_VAR_TRUENAS_KEY}}" # API key from TrueNAS UI > API Keys
 
     - Nginx Proxy Manager:
         icon: nginx-proxy-manager.png
@@ -61,11 +70,11 @@
         description: Reverse proxy / SSL
 
 # - Apps:
-    # Start everything else here as a plain link (no widget block needed),
-    # then upgrade individual ones to widgets once you confirm they're supported:
-    # https://gethomepage.dev/widgets/services/
-    #
-    # - App Name:
-    #     icon: appname.png
-    #     href: https://app.example.dk
-    #     description: one line about what it does
+#     Start everything else here as a plain link (no widget block needed),
+#     then upgrade individual ones to widgets once you confirm they're supported:
+#     https://gethomepage.dev/widgets/services/
+#
+#     - App Name:
+#         icon: appname.png
+#         href: https://app.example.dk
+#         description: one line about what it does
