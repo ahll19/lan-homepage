@@ -44,37 +44,44 @@
                 Unknown
                 {% endif %}
               label: "Last Door Open"
-
-    - Mealie:
-        icon: mealie.png
-        href: https://mealie.example.dk
-        description: Recipes & meal planning
+    
+    - ESPHome:
+        icon: esphome.png
+        href: https://esphome.lauridsen.it
+        description: ESPHome
         widget:
-          type: mealie
-          url: http://192.168.1.X:9000
-          key: "{{HOMEPAGE_VAR_MEALIE_KEY}}"
+          type: esphome
+          url: https://esphome.lauridsen.it
 
 - Infrastructure:
     - TrueNAS:
         icon: truenas-scale.png
-        href: https://truenas.example.dk
+        href: https://192.168.1.65
         description: NAS / storage
         widget:
           type: truenas
-          url: https://192.168.1.X # TrueNAS SCALE web UI address
-          key: "{{HOMEPAGE_VAR_TRUENAS_KEY}}" # API key from TrueNAS UI > API Keys
+          url: https://192.168.1.65
+          version: 2
+          key: "{{HOMEPAGE_VAR_TRUENAS_TOKEN}}"
+          enablePools: true
+          nasType: scale
 
-    - Nginx Proxy Manager:
+    - Nginx Proxy Manager - Internal:
         icon: nginx-proxy-manager.png
-        href: https://npm.example.dk
+        href: http://192.168.1.251:81
         description: Reverse proxy / SSL
-
-# - Apps:
-#     Start everything else here as a plain link (no widget block needed),
-#     then upgrade individual ones to widgets once you confirm they're supported:
-#     https://gethomepage.dev/widgets/services/
-#
-#     - App Name:
-#         icon: appname.png
-#         href: https://app.example.dk
-#         description: one line about what it does
+        widget:
+          type: npm
+          url: http://192.168.1.251:81
+          username: "{{HOMEPAGE_VAR_NPM_USER}}"
+          password: "{{HOMEPAGE_VAR_NPM_PASS}}"
+    
+    - Nginx Proxy Manager - External:
+        icon: nginx-proxy-manager.png
+        href: http://192.168.1.64:81
+        description: Reverse proxy / SSL
+        widget:
+          type: npm
+          url: http://192.168.1.64:81
+          username: "{{HOMEPAGE_VAR_NPM_USER}}"
+          password: "{{HOMEPAGE_VAR_NPM_PASS}}"
