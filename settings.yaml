@@ -24,12 +24,16 @@ layout:
   Media:
     style: row
     columns: 3
+    header: false
   Home:
     style: row
     columns: 3
+    header: false
   Infrastructure:
     style: row
     columns: 3
+    header: false
   Apps:
     style: row
     columns: 4
+    header: false

@@ -11,6 +11,17 @@
           enableBlocks: true
           enableNowPlaying: true
           enableMediaControl: true
+    
+    - Immich:
+        icon: immich.png
+        href: https://billeder.lauridsen.it
+        description: Immich
+        widget:
+          type: immich
+          url: https://billeder.lauridsen.it
+          key: "{{HOMEPAGE_VAR_IMMICH_TOKEN}}"
+          version: 2
+          fields: ["photos", "videos", "storage"]
 
 - Home:
     - Home Assistant:
