@@ -2,16 +2,27 @@
 # For configuration options and examples, please see:
 # https://gethomepage.dev/configs/bookmarks
 
-- Tech:
+- Selfhosted:
     - Github:
         - abbr: GH
           href: https://github.com/ahll19
+    - Dozzle:
+        - abbr: DZ
+          href: https://dozzle.lauridsen.it
+    - Nextcloud:
+        - abbr: NC
+          href: https://drive.lauridsen.it
+    - Gaggitmate:
+        - abbr: GM
+          href: https://gaggimate.lauridsen.it
+    - Meali:
+        - abbr: MI
+          href: https://opskrifter.lauridsen.it
 
-- Entertainment:
+- Other:
     - YouTube:
         - abbr: YT
           href: https://youtube.com/
     - Reddit:
         - abbr: RE
           href: https://reddit.com/
-          description: The front page of the internet
