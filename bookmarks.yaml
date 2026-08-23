@@ -2,10 +2,7 @@
 # For configuration options and examples, please see:
 # https://gethomepage.dev/configs/bookmarks
 
-- Selfhosted:
-    - Github:
-        - abbr: GH
-          href: https://github.com/ahll19
+- Lauridsen.it:
     - Dozzle:
         - abbr: DZ
           href: https://dozzle.lauridsen.it
@@ -19,10 +16,27 @@
         - abbr: MI
           href: https://opskrifter.lauridsen.it
 
-- Other:
-    - YouTube:
-        - abbr: YT
-          href: https://youtube.com/
-    - Reddit:
-        - abbr: RE
-          href: https://reddit.com/
+- Consoles:
+    - Hetzner:
+        - abbr: HE
+          href: https://console.hetzner.com/projects
+    - Github:
+        - abbr: GH
+          href: https://github.com/ahll19
+
+- HTTP:
+    - MeTube:
+      - abbr: MT
+        href: http://192.168.1.65:30094/
+    - Paperless:
+      - abbr: PL
+        href: http://192.168.1.65:30070
+    - Photoprism:
+      - abbr: PP
+        href: http://192.168.1.65:20800
+    - qBitTorrent:
+      - abbr: qb
+        href: http://192.168.1.65:30024
+    - Zigbee2MQTT:
+      - abbr: ZM
+        href: http://192.168.1.65:30065
