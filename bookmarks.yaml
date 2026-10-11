@@ -3,9 +3,6 @@
 # https://gethomepage.dev/configs/bookmarks
 
 - Lauridsen.it:
-    - Dozzle:
-        - abbr: DZ
-          href: https://dozzle.lauridsen.it
     - Nextcloud:
         - abbr: NC
           href: https://drive.lauridsen.it
@@ -25,9 +22,6 @@
           href: https://github.com/ahll19
 
 - HTTP:
-    - MeTube:
-      - abbr: MT
-        href: http://192.168.1.65:30094/
     - Paperless:
       - abbr: PL
         href: http://192.168.1.65:30070

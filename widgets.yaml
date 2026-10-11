@@ -16,6 +16,14 @@
       provider: duckduckgo # google | duckduckgo | bing | brave | ... or "custom"
       target: _blank
 
+- glances:
+      url: http://192.168.1.65:30015
+      version: 4 # required only if running glances v4 or higher, defaults to 3
+      cpu: true # optional, enabled by default, disable by setting to false
+      mem: true # optional, enabled by default, disable by setting to false
+      cputemp: true # disabled by default
+      expanded: true # show the expanded view
+
 # Open-Meteo needs no API key, so it's the easiest weather option to start with.
 # Swap to `weatherapi:` or `openweathermap:` later if you want an API key's extra data.
 - openmeteo:
